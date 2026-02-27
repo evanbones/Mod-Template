@@ -3,7 +3,7 @@ import shutil
 import sys
 
 OLD_IDS = ["example_mod", "mod_template"]
-OLD_NAMES = ["Example Mod", "Mod Template"]
+OLD_NAMES = ["Example Mod", "Mod-Template", "mod-template", "Mod Template"]
 OLD_AUTHOR = "Evan"
 OLD_PACKAGE = "com.evandev"
 
