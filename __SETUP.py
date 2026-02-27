@@ -2,10 +2,9 @@ import os
 import shutil
 import sys
 
-OLD_IDS = ["example_mod", "mod_template"]
-OLD_NAMES = ["Example Mod", "Mod-Template", "mod-template", "Mod Template"]
 OLD_AUTHOR = "Evan"
 OLD_PACKAGE = "com.evandev"
+
 
 def prompt(msg):
     val = input(msg).strip()
@@ -13,6 +12,7 @@ def prompt(msg):
         print("Value cannot be empty!")
         sys.exit(1)
     return val
+
 
 def main():
     print("=== Mod Template Initializer ===")
@@ -23,6 +23,25 @@ def main():
 
     old_pkg_path = os.path.join(*OLD_PACKAGE.split("."))
     new_pkg_path = os.path.join(*new_package.split("."))
+
+    new_id_kebab = new_id.replace("_", "-")
+    new_name_kebab = new_name.replace(" ", "-")
+    new_name_pascal = new_name.replace(" ", "")
+
+    REPLACEMENTS = {
+        "ExampleMod": new_name_pascal,
+        "ModTemplate": new_name_pascal,
+        "Example Mod": new_name,
+        "Mod Template": new_name,
+        "Example-Mod": new_name_kebab,
+        "Mod-Template": new_name_kebab,
+        "example-mod": new_id_kebab,
+        "mod-template": new_id_kebab,
+        "example_mod": new_id,
+        "mod_template": new_id,
+        OLD_PACKAGE: new_package,
+        OLD_AUTHOR: new_author
+    }
 
     print("\nProcessing files...")
 
@@ -41,13 +60,8 @@ def main():
                     content = f.read()
 
                 new_content = content
-                for old_id in OLD_IDS:
-                    new_content = new_content.replace(old_id, new_id)
-                for old_name in OLD_NAMES:
-                    new_content = new_content.replace(old_name, new_name)
-
-                new_content = new_content.replace(OLD_PACKAGE, new_package)
-                new_content = new_content.replace(OLD_AUTHOR, new_author)
+                for old_val, new_val in REPLACEMENTS.items():
+                    new_content = new_content.replace(old_val, new_val)
 
                 if new_content != content:
                     with open(filepath, 'w', encoding='utf-8') as f:
@@ -59,8 +73,10 @@ def main():
             old_path = os.path.join(root, item)
             new_item = item
 
-            for old_id in OLD_IDS:
-                new_item = new_item.replace(old_id, new_id)
+            for old_val, new_val in REPLACEMENTS.items():
+                if old_val in [OLD_PACKAGE, OLD_AUTHOR]:
+                    continue
+                new_item = new_item.replace(old_val, new_val)
 
             if new_item != item:
                 new_path = os.path.join(root, new_item)
@@ -90,6 +106,7 @@ def main():
     print(f"\nSuccess! Mod '{new_name}' ({new_id}) initialized.")
     print("Deleting setup script...")
     os.remove(__file__)
+
 
 if __name__ == "__main__":
     main()
