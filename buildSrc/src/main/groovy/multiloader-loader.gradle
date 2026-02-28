@@ -4,10 +4,10 @@ plugins {
 }
 
 configurations {
-    commonJava{
+    commonJava {
         canBeResolved = true
     }
-    commonResources{
+    commonResources {
         canBeResolved = true
     }
 }
@@ -35,6 +35,7 @@ processResources {
 publishMods {
     changelog = rootProject.file("CHANGELOG-LATEST.md").text
     type = STABLE
+    version = "${project.version}-${project.name}-${minecraft_version}"
     displayName = "${mod_name} ${project.name.capitalize()} ${minecraft_version} - ${project.version}"
     modLoaders.add(project.name)
 
@@ -42,6 +43,7 @@ publishMods {
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
         projectId = ""
         minecraftVersions.add("${minecraft_version}")
+
         optional { slug = "cloth-config" }
     }
 
@@ -49,6 +51,7 @@ publishMods {
         accessToken = providers.environmentVariable("MODRINTH_TOKEN")
         projectId = ""
         minecraftVersions.add("${minecraft_version}")
+
         optional { slug = "cloth-config" }
     }
 }
