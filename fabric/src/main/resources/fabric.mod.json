@@ -23,9 +23,6 @@
     ],
     "modmenu": [
       "com.evandev.mod_template.compat.ModMenuIntegration"
-    ],
-    "fabric-datagen": [
-      "com.evandev.mod_template.datagen.TemplateDataGenerator"
     ]
   },
   "mixins": [
