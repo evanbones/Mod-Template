@@ -21,9 +21,6 @@
     "client": [
       "com.evandev.mod_template.client.ExampleModClient"
     ],
-    "modmenu": [
-      "com.evandev.mod_template.compat.ModMenuIntegration"
-    ],
     "fabric-datagen": [
       "com.evandev.mod_template.datagen.TemplateDataGenerator"
     ]
@@ -33,9 +30,9 @@
     "${mod_id}.fabric.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14",
-    "fabric": "*",
-    "minecraft": "${minecraft_version}",
-    "java": ">=21"
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=${java_version}"
   }
 }
