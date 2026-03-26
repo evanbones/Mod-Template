@@ -18,7 +18,6 @@ neoForge {
 }
 
 dependencies {
-    compileOnly "dev.emi:emi-xplat-mojmap:${emi_version}"
     compileOnly "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
 
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
