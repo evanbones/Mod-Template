@@ -41,9 +41,13 @@ neoForge {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
+    // Kaleido
     implementation("folk.sisby:kaleido-config:${kaleido_version}")
     jarJar("folk.sisby:kaleido-config:${kaleido_version}")
+    runtimeOnly "maven.modrinth:yacl:${yacl_version}-neoforge"
+    //runtimeOnly "maven.modrinth:mcqoy:${mcqoy_version}+neo-26.1"
 
+    // RRV
     runtimeOnly("cc.cassian.rrv:reliable-recipe-viewer-neoforge:${rrv_version}")
 }
 

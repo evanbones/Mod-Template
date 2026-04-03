@@ -11,6 +11,8 @@ dependencies {
     // Kaleido
     implementation("folk.sisby:kaleido-config:${kaleido_version}")
     include("folk.sisby:kaleido-config:${kaleido_version}")
+    runtimeOnly "maven.modrinth:yacl:${yacl_version}-fabric"
+    runtimeOnly "maven.modrinth:mcqoy:${mcqoy_version}+fabric-26.1"
 
     // Mod Menu
     implementation "com.terraformersmc:modmenu:${mod_menu_version}"
