@@ -10,8 +10,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ModConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -20,9 +18,6 @@ public class ModConfig {
 
     @SerializedName("enabled")
     public boolean enabled = true;
-
-    @SerializedName("missing_id_map")
-    public Map<String, String> missingIdMap = new HashMap<>();
 
     public static ModConfig get() {
         if (INSTANCE == null) {
