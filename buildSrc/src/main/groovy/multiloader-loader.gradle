@@ -43,7 +43,6 @@ tasks.named('sourcesJar', Jar) {
     from(configurations.commonResources)
 }
 
-
 publishMods {
     changelog = rootProject.file("CHANGELOG-LATEST.md").text
     type = STABLE
@@ -54,12 +53,16 @@ publishMods {
     curseforge {
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
         projectId = ""
-        minecraftVersions.add("${minecraft_version}")
+        minecraftVersions.add("26.1")
+        minecraftVersions.add("26.1.1")
+        minecraftVersions.add("26.1.2")
     }
 
     modrinth {
         accessToken = providers.environmentVariable("MODRINTH_TOKEN")
         projectId = ""
-        minecraftVersions.add("${minecraft_version}")
+        minecraftVersions.add("26.1")
+        minecraftVersions.add("26.1.1")
+        minecraftVersions.add("26.1.2")
     }
 }
