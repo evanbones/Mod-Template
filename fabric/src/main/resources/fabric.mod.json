@@ -37,5 +37,6 @@
     "fabric": "*",
     "minecraft": "${minecraft_version}",
     "java": ">=21"
+    "yacl": ">=${yacl_version}"
   }
 }
