@@ -40,12 +40,11 @@ body:
         - "26.1"
     validations:
       required: true
-  - type: dropdown
+  - type: input
     attributes:
       label: Mod Version
       description: The version of the mod you were using
-      options:
-        - "1.0.0"
+      placeholder: 1.0.0
     validations:
       required: true
   - type: dropdown
