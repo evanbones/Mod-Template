@@ -1,0 +1,6 @@
+{
+  "config.mod_template.title": "Mod Template Config",
+  "config.mod_template.category.general": "General",
+  "config.mod_template.enabled": "Enabled",
+  "config.mod_template.enabled.tooltip": "Whether or not the mod is enabled"
+}
