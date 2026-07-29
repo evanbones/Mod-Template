@@ -51,9 +51,11 @@ publishMods {
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
         projectId = ""
         minecraftVersions.add(project.minecraft_version)
+        client = true
+        server = true
 
         optional("rrv")
-        requires("yacl")
+        optional("yacl")
     }
 
     modrinth {
@@ -62,6 +64,6 @@ publishMods {
         minecraftVersions.add(project.minecraft_version)
 
         optional("rrv")
-        requires("yacl")
+        optional("yacl")
     }
 }

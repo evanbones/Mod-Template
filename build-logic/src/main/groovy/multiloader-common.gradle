@@ -13,23 +13,43 @@ java {
 }
 
 repositories {
-    mavenCentral()
     maven {
-        name = "Xander's Maven"
-        url = "https://maven.isxander.dev/releases"
+        name = "Terraformers Maven"
+        url = uri("https://maven.terraformersmc.com/releases/")
+        content {
+            includeGroupAndSubgroups("com.terraformersmc")
+        }
+    }
+    maven {
+        name = "Xander Maven"
+        url = uri("https://maven.isxander.dev/releases")
+        content {
+            includeGroupAndSubgroups("dev.isxander")
+            includeGroupAndSubgroups("org.quiltmc.parsers")
+        }
+    }
+    maven {
+        name = "Quilt Maven"
+        url = uri("https://maven.quiltmc.org/repository/release/")
+        content {
+            includeGroupAndSubgroups("org.quiltmc.parsers")
+        }
     }
     maven {
         name = "Modrinth"
-        url = "https://api.modrinth.com/maven"
+        url = uri("https://api.modrinth.com/maven")
+        content {
+            includeGroupAndSubgroups("maven.modrinth")
+        }
     }
     maven {
         name = "Cassian's Maven"
-        url = "https://maven.cassian.cc/"
+        url = uri("https://maven.cassian.cc/")
+        content {
+            includeGroupAndSubgroups("cc.cassian")
+        }
     }
-    maven {
-        name = "TerraformersMC"
-        url = "https://maven.terraformersmc.com/releases/"
-    }
+    mavenCentral()
 }
 
 ['apiElements', 'runtimeElements', 'sourcesElements'].each { variant ->
